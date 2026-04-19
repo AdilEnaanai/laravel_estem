@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion Produits</title> 
+    @vite('resources/css/app.css') 
 </head>
 <body>
     <h1>Liste des Produits</h1>
@@ -13,6 +14,11 @@
         <p style="color: green; padding: 10px; background: #e8ffe8; border: 1px solid green;">
             ✅ {{ session('success') }}
         </p>
+        <script>
+            setTimeout(function() {
+                document.querySelector('p[style*="color: green"]').style.display = 'none';
+            }, 2000);
+        </script>
     @endif
 
     {{-- ============================================
@@ -85,6 +91,7 @@
                     <th>Prix</th>
                     <th>Catégorie</th>
                     <th>Date d'ajout</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -96,6 +103,15 @@
                         <td>{{ number_format($produit->prix, 2, ',', ' ') }} €</td>
                         <td>{{ $produit->categorie }}</td>
                         <td>{{ $produit->created_at->format('d/m/Y H:i') }}</td>
+                        <td>
+                            <form action="/produits/{{ $produit->id }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">
+                                    <img  class="delete" src="https://files.softicons.com/download/toolbar-icons/vista-base-software-icons-2-by-icons-land/ico/DeleteRed.ico" alt="Supprimer">
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -23,4 +23,12 @@ class ProduitController extends Controller
         Produit::create($request->all());
         return redirect()->route('produits.index')->with('success', 'Produit créé avec succès.');
     }
+
+    public function destroy($id)
+    {
+        $produit = Produit::findOrFail($id);
+        $produit->delete();
+        return redirect()->route('produits.index')->with('success', 'Produit supprimé avec succès.');
+    }
 }
+
