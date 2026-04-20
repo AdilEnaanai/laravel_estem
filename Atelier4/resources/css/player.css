@@ -1,12 +1,11 @@
 .player-card {
-    border: 1px solid #ccc;
+    border: 3px solid #0c23a5;
     border-radius: 8px;
-    padding: 10px;
+    padding: 5px;
     width: 200px;
-    height: 600px;
+    height: 460px;
 
     background-color: rgb(74, 159, 244);
-    display: inline-block;
 }
 
 .player-card h3 {
@@ -17,13 +16,16 @@
     display: block;
     border-radius: 4px;
     margin: auto;
+    height: 100px;
 }
 
 .player-card p {
-    text-align: center;
+    text-align: justify;
     margin-bottom: 10px;
+    height: 260px;
     border: 1px solid #eee;
     padding: 10px;
     background-color: rgba(244, 247, 224, 0.377);
     color: rgb(6, 6, 6);
+    border-radius: 4px;
 }
